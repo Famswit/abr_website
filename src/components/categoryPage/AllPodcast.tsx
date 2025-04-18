@@ -2,9 +2,17 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-
 import PodcastList from "./components/PodcastList";
 import Pagination from "./components/Pagination";
+
+interface Podcast {
+  title: string;
+  episode: string;
+  date: string;
+  duration: string;
+  image: string;
+  popularity: number;
+}
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -33,7 +41,7 @@ const menuVariants = {
 };
 
 const AllPodcasts = () => {
-  const initialPodcasts = [
+  const initialPodcasts: Podcast[] = [
     {
       title: "FITNESS FOCUS",
       episode: "EPT12: Cardio Vascular Exercise Part 3",
@@ -156,17 +164,22 @@ const AllPodcasts = () => {
     },
   ];
 
-  // State for sorting, category filtering, and pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortOption, setSortOption] = useState("Most Popular");
+  const [sortOption, setSortOption] = useState<"Most Popular" | "Recent">(
+    "Most Popular"
+  );
   const [isSortMenuOpen, setIsSortMenuOpen] = useState(false);
-  const [categoryOption, setCategoryOption] = useState("All");
+  const [categoryOption, setCategoryOption] = useState<string>("All");
   const [isCategoryMenuOpen, setIsCategoryMenuOpen] = useState(false);
   const podcastsPerPage = 10;
   const categories = ["All", "Fitness Focus", "Auntie Shaz"];
 
   // Sorting and filtering function
-  const processPodcasts = (podcasts, sortOption, categoryOption) => {
+  const processPodcasts = (
+    podcasts: Podcast[],
+    sortOption: "Most Popular" | "Recent",
+    categoryOption: string
+  ): Podcast[] => {
     let filtered = [...podcasts];
     if (categoryOption !== "All") {
       filtered = podcasts.filter((podcast) => podcast.title === categoryOption);
@@ -204,19 +217,19 @@ const AllPodcasts = () => {
     if (currentPage < totalPages) setCurrentPage(currentPage + 1);
   };
 
-  const handlePageClick = (page) => {
+  const handlePageClick = (page: number) => {
     setCurrentPage(page);
   };
 
   const toggleSortMenu = () => setIsSortMenuOpen(!isSortMenuOpen);
-  const handleSortSelect = (option) => {
+  const handleSortSelect = (option: "Most Popular" | "Recent") => {
     setSortOption(option);
     setIsSortMenuOpen(false);
     setCurrentPage(1);
   };
 
   const toggleCategoryMenu = () => setIsCategoryMenuOpen(!isCategoryMenuOpen);
-  const handleCategorySelect = (option) => {
+  const handleCategorySelect = (option: string) => {
     setCategoryOption(option);
     setIsCategoryMenuOpen(false);
     setCurrentPage(1);
