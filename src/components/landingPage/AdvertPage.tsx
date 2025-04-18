@@ -1,10 +1,10 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
 const images = [
-  '/images/advert1.png',
-  '/images/advert2.png',
-  '/images/advert3.png',
+  "/images/advert/advert1.png",
+  "/images/advert/advert2.png",
+  "/images/advert/advert3.png",
 ];
 
 const AdvertPage = () => {
@@ -17,11 +17,11 @@ const AdvertPage = () => {
             className="w-[285px] h-[255px] bg-gray-200 rounded-md overflow-hidden relative"
           >
             <Image
-              src={src}
+              src={src || "/images/advert/fallback.png"}
               alt={`Advert ${index + 1}`}
-              layout="fill"
-              objectFit="cover"
-              className="rounded-md"
+              width={285}
+              height={255}
+              className="rounded-sm object-cover"
             />
           </div>
         ))}

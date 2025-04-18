@@ -7,11 +7,11 @@ import { Share2, Gift } from "lucide-react";
 import { motion } from "framer-motion";
 
 const categoryCards = [
-  { image: "/images/news.png", title: "Fitness Focus" },
-  { image: "/images/new2.png", title: "Fitness Focus" },
-  { image: "/images/new3.png", title: "Fitness Focus" },
-  { image: "/images/new4.png", title: "Fitness Focus" },
-  { image: "/images/news5.png", title: "Fitness Focus" },
+  { image: "/images/news/news.png", title: "Fitness Focus" },
+  { image: "/images/news/new2.png", title: "Fitness Focus" },
+  { image: "/images/news/new3.png", title: "Fitness Focus" },
+  { image: "/images/news/new4.png", title: "Fitness Focus" },
+  { image: "/images/news/news5.png", title: "Fitness Focus" },
 ];
 
 const EducationCategory = () => {
@@ -83,7 +83,7 @@ const EducationCategory = () => {
           >
             <div className="w-full h-[200px] sm:h-[234px] bg-gray-200 rounded overflow-hidden">
               <Image
-                src={card.image}
+                src={card.image || "/images/news/categoryCards.png"}
                 alt={card.title}
                 width={223}
                 height={234}

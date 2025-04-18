@@ -138,7 +138,7 @@ const NewlyAddedEpisodes = () => {
                 >
                   <div className="relative w-full h-[187px] bg-gray-200 rounded-[3px] overflow-hidden">
                     <Image
-                      src={episode.image || "/images/fallback.png"}
+                      src={episode.image || "/images/latest/fallback.png"}
                       alt={episode.title}
                       width={223}
                       height={187}

@@ -97,7 +97,7 @@ const NeverStopListening = () => {
                 variants={imageHover}
               >
                 <Image
-                  src="/images/listen2.png"
+                  src="/images/listen/listen2.png"
                   alt="Girl Listening"
                   layout="fill"
                   objectFit="cover"
@@ -110,7 +110,7 @@ const NeverStopListening = () => {
                 variants={imageHover}
               >
                 <Image
-                  src="/images/listen1.png"
+                  src="/images/listen/listen1.png"
                   alt="Guy with laptop"
                   layout="fill"
                   objectFit="cover"
@@ -119,7 +119,7 @@ const NeverStopListening = () => {
 
               <div className="absolute left-[-80px] sm:left-[-90px] lg:left-[-100px] bottom-[60px] sm:bottom-[70px] lg:bottom-[80px] w-[50px] sm:w-[60px] lg:w-[68.81px] h-[50px] sm:h-[60px] lg:h-[68.81px]">
                 <Image
-                  src="/images/listen3.png"
+                  src="/images/listen/listen3.png"
                   alt="Wave icon"
                   width={30}
                   height={30}
@@ -128,7 +128,7 @@ const NeverStopListening = () => {
 
               <div className="absolute top-[20px] sm:top-[25px] lg:top-[30px] right-[-20px] sm:right-[-22px] lg:right-[-25px] w-[40px] sm:w-[45px] lg:w-[50px] h-[40px] sm:h-[45px] lg:h-[50px]">
                 <Image
-                  src="/images/listen4.png"
+                  src="/images/listen/listen4.png"
                   alt="Logo badge"
                   width={40}
                   height={40}

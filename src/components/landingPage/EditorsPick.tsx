@@ -205,7 +205,7 @@ const EditorsPicks = () => {
             <Link href="/">
               <motion.div>
                 <Image
-                  src="/images/advert/advertPics.PNG"
+                  src="/images/advert/advertPics.png"
                   alt="Africa Business Radio"
                   className="opacity-80 object-cover mt-[18px]"
                   width={635}

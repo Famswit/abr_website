@@ -20,13 +20,15 @@ export default function Header() {
     <header className="w-full h-[72px] bg-white text-[15px] shadow-sm">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
         <Link href="/">
-          <Image
-            src="/ABR_logo.png"
-            alt="Africa Business Radio"
-            width={108}
-            height={51}
-            className="object-contain"
-          />
+          <div>
+            <Image
+              src="/images/ABR_Logo.png"
+              alt="Africa Business Radio"
+              width={108}
+              height={51}
+              className="object-contain"
+            />
+          </div>
         </Link>
 
         <button className="md:hidden" onClick={toggleMenu}>

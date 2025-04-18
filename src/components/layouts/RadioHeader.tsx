@@ -14,7 +14,7 @@ const RadioHeader = () => {
       {/* Left Side */}
       <div className="relative flex-1 md:w-[40%] h-full max-w-full">
         <Image
-          src="/background.png"
+          src="/images/background.png"
           alt="Background"
           layout="fill"
           objectFit="cover"

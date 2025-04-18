@@ -38,11 +38,11 @@ const NewsCategory = () => {
   };
 
   const fallbackCategoryCards: FallbackCategoryCard[] = [
-    { image: "/images/news.png", title: "Fitness Focus" },
-    { image: "/images/new2.png", title: "Fitness Focus" },
-    { image: "/images/new3.png", title: "Fitness Focus" },
-    { image: "/images/new4.png", title: "Fitness Focus" },
-    { image: "/images/news5.png", title: "Fitness Focus" },
+    { image: "/images/news/news.png", title: "Fitness Focus" },
+    { image: "/images/news/new2.png", title: "Fitness Focus" },
+    { image: "/images/news/new3.png", title: "Fitness Focus" },
+    { image: "/images/news/new4.png", title: "Fitness Focus" },
+    { image: "/images/news/news5.png", title: "Fitness Focus" },
   ];
 
   const { data, isLoading: queryLoading, isError } = useGetTopCategories();
@@ -125,21 +125,17 @@ const NewsCategory = () => {
                 whileHover="hover"
                 variants={cardHover}
               >
-                <div className="w-full h-[234px] rounded overflow-hidden">
+                <div className="w-full rounded overflow-hidden">
                   <Image
                     src={
                       "image_url" in card
                         ? card.image_url
-                        : card.image || "/images/fallback.png"
+                        : card.image || "/images/news/fallback.png"
                     }
                     alt={"name" in card ? card.name : card.title}
                     width={223}
                     height={234}
                     className="object-cover"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src =
-                        "/images/fallback.png";
-                    }}
                   />
                 </div>
                 <h4 className="mt-3 text-[16px] sm:text-[18px] font-semibold text-[#2C2C2C]">
