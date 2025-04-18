@@ -13,19 +13,19 @@ import TrendingPodcasts from "@/components/landingPage/TrendingEpisode";
 
 export default function Home() {
   return (
-   <main>
-    <FbnSection />
-    <EditorsPicks />
-    <TrendingPodcasts />
-    <NewlyAddedEpisodes />
-    <NewsCategory />
-    <AdvertPage />
-    <EducationCategory />
-    <EntertainmentCategory />
-    <TechCategory />
-    <OtherCategory />
-    <NeverStopListening />
-    <GlobalPartners />
-   </main>
+    <main>
+      <FbnSection />
+      <EditorsPicks />
+      <TrendingPodcasts />
+      <NewlyAddedEpisodes />
+      <NewsCategory />
+      <AdvertPage />
+      <EducationCategory />
+      <EntertainmentCategory />
+      <TechCategory />
+      <OtherCategory />
+      <NeverStopListening />
+      <GlobalPartners />
+    </main>
   );
 }

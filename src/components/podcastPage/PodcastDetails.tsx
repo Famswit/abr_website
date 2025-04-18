@@ -29,7 +29,6 @@ const PodcastDetails = () => {
       transition={{ duration: 0.8, ease: "easeInOut" }}
       className="relative bg-gradient-to-r from-[#2B3221] to-[rgba(43,50,33,0.5)] py-10 px-6 sm:px-10 lg:px-20 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10"
     >
-      {/* Share Icon */}
       <div
         className="absolute top-4 right-4 flex space-x-1 cursor-pointer"
         onClick={handleShare}

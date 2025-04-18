@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
-import React from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { Play } from 'lucide-react'
-import { motion } from 'framer-motion'
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Play } from "lucide-react";
+import { motion } from "framer-motion";
 
 const NextEpisode = () => {
   return (
@@ -18,7 +18,6 @@ const NextEpisode = () => {
       <div className="h-[1px] w-full lg:w-[846px] bg-[#DCDCDC] mt-6"></div>
 
       <div className="flex flex-wrap justify-start gap-6 mt-6">
-        {/* Episode 1: The Future of Work */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -34,7 +33,7 @@ const NextEpisode = () => {
                 className="opacity-90"
                 width={300}
                 height={288}
-                style={{ alignContent: 'end' }}
+                style={{ alignContent: "end" }}
               />
             </Link>
             <div className="bg-white w-full h-[136px]">
@@ -47,9 +46,14 @@ const NextEpisode = () => {
                 </h4>
               </div>
               <div className="flex flex-row gap-[10px] ml-10 mt-5">
-                <p className="text-[13px] font-[500] text-[#979797] ">Sept 7, 2023</p>
+                <p className="text-[13px] font-[500] text-[#979797] ">
+                  Sept 7, 2023
+                </p>
                 <div className="w-[1px] h-[12px] bg-[#000] mt-1.5"></div>
-                <p className="text-[13px] font-[500] text-[#979797]"> 35 mins</p>
+                <p className="text-[13px] font-[500] text-[#979797]">
+                  {" "}
+                  35 mins
+                </p>
               </div>
             </div>
           </div>
@@ -71,7 +75,7 @@ const NextEpisode = () => {
                 className="opacity-90"
                 width={300}
                 height={288}
-                style={{ alignContent: 'end' }}
+                style={{ alignContent: "end" }}
               />
             </Link>
             <div className="bg-white w-full h-[136px]">
@@ -84,16 +88,21 @@ const NextEpisode = () => {
                 </h4>
               </div>
               <div className="flex flex-row gap-[10px] ml-10 mt-5">
-                <p className="text-[13px] font-[500] text-[#979797] ">Sept 5, 2023</p>
+                <p className="text-[13px] font-[500] text-[#979797] ">
+                  Sept 5, 2023
+                </p>
                 <div className="w-[1px] h-[12px] bg-[#000] mt-1.5"></div>
-                <p className="text-[13px] font-[500] text-[#979797]"> 55 mins</p>
+                <p className="text-[13px] font-[500] text-[#979797]">
+                  {" "}
+                  55 mins
+                </p>
               </div>
             </div>
           </div>
         </motion.div>
       </div>
     </motion.div>
-  )
-}
+  );
+};
 
-export default NextEpisode
+export default NextEpisode;

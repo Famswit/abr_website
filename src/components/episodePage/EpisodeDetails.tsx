@@ -4,10 +4,11 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Play, Volume2 } from "lucide-react";
-import { ShareEpisodeIcon } from "../../../public/icons/shareEpisodeIcon";
-import { GroupEpisodeIcon } from "../../../public/icons/groupEpisodeIcon";
-import { ReloadIcon } from "../../../public/icons/ReloadIcon1";
 import { motion } from "framer-motion";
+
+import { ShareEpisodeIcon } from "../../../public/icons/shareEpisodeIcon";
+import { ReloadIcon } from "../../../public/icons/ReloadIcon1";
+import { GroupEpisodeIcon } from "../../../public/icons/GroupEpisodeIcon";
 
 const EpisodeDetails = () => {
   const [isReadMore, setIsReadMore] = useState(false);

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Play } from "lucide-react";
 import { ShareEpisodeIcon } from "../../../public/icons/shareEpisodeIcon";
 import { ScheduleEpisodeIcon } from "../../../public/icons/scheduleEpisodeIcon";
-import { GroupEpisodeIcon } from "../../../public/icons/groupEpisodeIcon";
+import { GroupEpisodeIcon } from "../../../public/icons/GroupEpisodeIcon";
 import { motion } from "framer-motion";
 
 const episodes = [
