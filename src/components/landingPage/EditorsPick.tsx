@@ -203,15 +203,16 @@ const EditorsPicks = () => {
               ADVERTISEMENT
             </motion.span>
             <Link href="/">
-              <motion.img
-                src="/images/advert/advertPics.PNG"
-                alt="Africa Business Radio"
-                width={635}
-                height={99}
-                style={{ width: "100%", maxWidth: "635px", height: "auto" }}
-                className="object-contain mt-[18px]"
-                {...slideUp}
-              />
+              <motion.div>
+                <Image
+                  src="/images/advert/advertPics.PNG"
+                  alt="Africa Business Radio"
+                  className="opacity-80 object-cover mt-[18px]"
+                  width={635}
+                  height={99}
+                  {...slideUp}
+                />
+              </motion.div>
             </Link>
           </div>
         </div>

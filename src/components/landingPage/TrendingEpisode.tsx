@@ -30,49 +30,49 @@ const TrendingPodcasts = () => {
 
   const fallbackCards: PodcastCard[] = [
     {
-      src: "/images/trending1.png",
+      src: "/images/trending/trending1.png",
       alt: "Hope For The Widow",
       episodes: "8 EPISODES",
       title: "Hope For The Widow",
       href: "#",
     },
     {
-      src: "/images/trending2.png",
+      src: "/images/trending/trending2.png",
       alt: "Policy Sphere by Agora",
       episodes: "22 EPISODES",
       title: "Policy Sphere by Agora",
       href: "#",
     },
     {
-      src: "/images/trending3.png",
+      src: "/images/trending/trending3.png",
       alt: "The Harmonised Life",
       episodes: "18 EPISODES",
       title: "The Harmonised Life",
       href: "#",
     },
     {
-      src: "/images/trending4.png",
+      src: "/images/trending/trending4.png",
       alt: "Lifestyle Central",
       episodes: "12 EPISODES",
       title: "Lifestyle Central",
       href: "#",
     },
     {
-      src: "/images/trending4.png",
+      src: "/images/trending/trending4.png",
       alt: "Lifestyle Central",
       episodes: "12 EPISODES",
       title: "Lifestyle Central",
       href: "#",
     },
     {
-      src: "/images/trending4.png",
+      src: "/images/trending/trending4.png",
       alt: "Lifestyle Central",
       episodes: "12 EPISODES",
       title: "Lifestyle Central",
       href: "#",
     },
     {
-      src: "/images/trending5.png",
+      src: "/images/trending/trending5.png",
       alt: "Wellness Hub",
       episodes: "35 EPISODES",
       title: "Wellness Hub",
@@ -145,14 +145,14 @@ const TrendingPodcasts = () => {
                   className="relative w-[288px] h-[424px] flex-shrink-0 animate-fadeIn hover:scale-105 hover:shadow-lg transition-all duration-300"
                 >
                   <Image
-                    src={card.src || "/images/fallback.png"}
+                    src={card.src || "/images/trending/fallback.png"}
                     alt={card.alt}
                     layout="fill"
                     objectFit="cover"
                     className="opacity-80 rounded-lg"
                     onError={(e) => {
                       (e.target as HTMLImageElement).src =
-                        "/images/fallback.png";
+                        "/images/trending/fallback.png";
                       console.warn(
                         `Failed to load image for "${card.title}": ${card.src}`
                       );

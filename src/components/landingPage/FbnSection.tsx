@@ -11,13 +11,15 @@ const FbnSection = () => {
       </span>
 
       <Link href="/">
-        <Image
-          src="/images/FBN-ADVERT.PNG"
-          alt="Africa Business Radio"
-          width={1176}
-          height={206}
-          className="object-contain animate-slide-up mt-[30px]"
-        />
+        <div>
+          <Image
+            src="/images/FBN-ADVERT.png"
+            alt="Africa Business Radio"
+            width={1176}
+            height={206}
+            className="object-contain animate-slide-up mt-[30px]"
+          />
+        </div>
       </Link>
     </div>
   );
