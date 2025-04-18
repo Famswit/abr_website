@@ -85,7 +85,6 @@ const TrendingPodcasts = () => {
 
   const totalCards = displayCards.length;
 
-  // Enforce 3-second minimum loading
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsMinLoading(false);

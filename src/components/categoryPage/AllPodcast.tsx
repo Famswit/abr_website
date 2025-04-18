@@ -190,7 +190,7 @@ const AllPodcasts = () => {
       return filtered.sort((a, b) => {
         const dateA = new Date(a.date);
         const dateB = new Date(b.date);
-        return dateB - dateA;
+        return dateB.getTime() - dateA.getTime();
       });
     }
     return filtered;
