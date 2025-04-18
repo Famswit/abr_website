@@ -71,7 +71,7 @@ const NextEpisode = () => {
             <Link href="#" className="rounded-lg overflow-hidden block">
               <Image
                 src="/images/nextEpisode/nextEpisode2.png"
-                alt="The Future of Work: Embracing Remote and Hybrid Workforces"
+                alt="Coping"
                 className="opacity-90"
                 width={300}
                 height={288}

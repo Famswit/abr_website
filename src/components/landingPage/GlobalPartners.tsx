@@ -28,17 +28,17 @@ const GlobalPartners = () => {
           },
           { src: "/images/partners/partner8.png", alt: "MIC" },
           {
-            src: "/images/partner9.png",
+            src: "/images/partners/partner9.png",
             alt: "Embassy of the United Arab Emirates",
           },
-          { src: "/images/partner10.png", alt: "989 Workspaces" },
-          { src: "/images/partner11.png", alt: "GE" },
+          { src: "/images/partners/partner10.png", alt: "989 Workspaces" },
+          { src: "/images/partners/partner11.png", alt: "GE" },
           {
-            src: "/images/partner12.png",
+            src: "/images/partners/partner12.png",
             alt: "South African Institute of Professional Accountants",
           },
-          { src: "/images/partner13.png", alt: "ABSA" },
-          { src: "/images/partner14.png", alt: "SAPN" },
+          { src: "/images/partners/partner13.png", alt: "ABSA" },
+          { src: "/images/partners/partner14.png", alt: "SAPN" },
         ].map((partner, index) => (
           <div key={index} className="flex flex-col items-center">
             <Image
