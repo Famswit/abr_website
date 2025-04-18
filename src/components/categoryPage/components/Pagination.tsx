@@ -1,6 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+interface PaginationProps {
+  currentPage: number;
+  totalPages: number;
+  onPrevPage: () => void;
+  onNextPage: () => void;
+  onPageClick: (page: number) => void;
+}
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -23,7 +31,7 @@ const Pagination = ({
   onPrevPage,
   onNextPage,
   onPageClick,
-}) => (
+}: PaginationProps) => (
   <motion.div
     className="flex items-center justify-center space-x-2 mt-8"
     variants={containerVariants}

@@ -3,14 +3,23 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Share2, Gift, ChevronLeft, ChevronRight } from "lucide-react";
+
 import { useGetLatestEpisode } from "@/API/LatestEpisodeAPI";
 
+interface Episode {
+  id?: string;
+  title: string;
+  date: string;
+  duration: string;
+  image: string;
+}
+
 const NewlyAddedEpisodes = () => {
-  const [page, setPage] = useState(0);
-  const [isMinLoading, setIsMinLoading] = useState(true);
+  const [page, setPage] = useState<number>(0);
+  const [isMinLoading, setIsMinLoading] = useState<boolean>(true);
   const EPISODES_PER_PAGE = 5;
 
-  const fallbackEpisodes = [
+  const fallbackEpisodes: Episode[] = [
     {
       title: "Relationship Button - Starting Afresh as a Widow",
       date: "AUG 29, 2023",
@@ -56,11 +65,11 @@ const NewlyAddedEpisodes = () => {
   ];
 
   const { data, isLoading, isError } = useGetLatestEpisode();
-  const episodes = data?.data || [];
+  const episodes: any[] = data?.data || [];
 
-  const displayEpisodes =
+  const displayEpisodes: Episode[] =
     !isLoading && !isError && episodes.length > 0
-      ? episodes.map((episode) => ({
+      ? episodes.map((episode: any) => ({
           id: episode.id,
           title: episode.title,
           date: new Date(episode.created_at)
@@ -115,7 +124,7 @@ const NewlyAddedEpisodes = () => {
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${page * 100}%)` }}
             >
-              {currentEpisodes.map((episode, index) => (
+              {currentEpisodes.map((episode: Episode, index: number) => (
                 <div
                   key={episode.id || index}
                   className="w-[220px] shrink-0 mr-6 transition-transform duration-300 hover:scale-[1.02]"
@@ -128,7 +137,8 @@ const NewlyAddedEpisodes = () => {
                       height={187}
                       className="rounded-md object-cover transition-transform duration-300 hover:scale-105"
                       onError={(e) => {
-                        e.target.src = "/images/fallback.png";
+                        (e.target as HTMLImageElement).src =
+                          "/images/fallback.png";
                         console.warn(
                           `Failed to load image for "${episode.title}": ${episode.image}`
                         );

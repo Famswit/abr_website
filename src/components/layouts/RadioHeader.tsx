@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+
 import { ScheduleIcon } from "../../../public/icons/ScheduleIcon";
 import { LatestNewsIcon } from "../../../public/icons/LatestNewsIcon";
 import { NewEpisodeIcon } from "../../../public/icons/NewEpisodeIcon";

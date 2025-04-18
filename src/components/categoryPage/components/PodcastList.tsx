@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-// Define TypeScript interface for a single podcast
 interface Podcast {
   title: string;
   episode: string;
@@ -12,12 +11,10 @@ interface Podcast {
   popularity: number;
 }
 
-// Define props type for PodcastList
 interface PodcastListProps {
   podcasts: Podcast[];
 }
 
-// Shared utilities (icons and animation variants)
 const Play = ({ className, fill }: { className?: string; fill?: string }) => (
   <svg className={className} fill={fill} viewBox="0 0 24 24">
     <path d="M8 5v14l11-7z" />

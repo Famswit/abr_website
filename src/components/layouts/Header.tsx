@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ChevronDown, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+
 import SearchButton from "./components/search";
 
 export default function Header() {

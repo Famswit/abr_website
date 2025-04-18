@@ -4,15 +4,25 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+
 import { useGetTrendingEpisode } from "@/API/TrendingEpisodesAPI";
 
+interface PodcastCard {
+  id?: string;
+  src: string;
+  alt: string;
+  episodes: string;
+  title: string;
+  href: string;
+}
+
 const TrendingPodcasts = () => {
-  const [startIndex, setStartIndex] = useState(0);
-  const [isMinLoading, setIsMinLoading] = useState(true);
+  const [startIndex, setStartIndex] = useState<number>(0);
+  const [isMinLoading, setIsMinLoading] = useState<boolean>(true);
   const cardsToShow = 4;
   const cardWidth = 288 + 16;
 
-  const fallbackCards = [
+  const fallbackCards: PodcastCard[] = [
     {
       src: "/images/trending1.png",
       alt: "Hope For The Widow",
@@ -64,14 +74,12 @@ const TrendingPodcasts = () => {
     },
   ];
 
-  // Fetch trending podcasts
   const { data, isLoading, isError } = useGetTrendingEpisode();
-  const podcasts = data?.data || [];
+  const podcasts: any[] = data?.data || [];
 
-  // Determine which cards to display
-  const displayCards =
+  const displayCards: PodcastCard[] =
     !isLoading && !isError && podcasts.length > 0
-      ? podcasts.map((podcast) => ({
+      ? podcasts.map((podcast: any) => ({
           id: podcast.id,
           src: podcast.picture_url,
           alt: podcast.title,
@@ -124,7 +132,7 @@ const TrendingPodcasts = () => {
               className="flex gap-4 transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${startIndex * cardWidth}px)` }}
             >
-              {displayCards.map((card, idx) => (
+              {displayCards.map((card: PodcastCard, idx: number) => (
                 <Link
                   key={card.id || idx}
                   href={card.href}
@@ -137,7 +145,8 @@ const TrendingPodcasts = () => {
                     objectFit="cover"
                     className="opacity-80 rounded-lg"
                     onError={(e) => {
-                      e.target.src = "/images/fallback.png";
+                      (e.target as HTMLImageElement).src =
+                        "/images/fallback.png";
                       console.warn(
                         `Failed to load image for "${card.title}": ${card.src}`
                       );

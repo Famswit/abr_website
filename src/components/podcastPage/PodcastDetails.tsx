@@ -36,7 +36,7 @@ const PodcastDetails = () => {
         <ShareIcon />
       </div>
 
-      {/* Left Side: Image with Overlay */}
+      {/* Left Side */}
       <div className="relative w-full max-w-[390px] h-[300px] sm:h-[350px] flex-shrink-0">
         <Image
           src="/images/podcastPage/podcastPics1.png"

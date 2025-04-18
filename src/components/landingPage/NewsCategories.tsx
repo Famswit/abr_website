@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Share2, Gift } from "lucide-react";
 import { motion } from "framer-motion";
+
 import { useGetTopCategories } from "@/API/TopCategoriesAPI";
 
 const NewsCategory = () => {
