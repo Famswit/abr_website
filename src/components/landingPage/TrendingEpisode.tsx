@@ -6,7 +6,6 @@ import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useGetTrendingEpisode } from "@/API/TrendingEpisodesAPI";
 
-// Define TypeScript interface for a podcast from the API
 interface ApiPodcast {
   id: string;
   title: string;
@@ -14,9 +13,8 @@ interface ApiPodcast {
   episode_count: number;
 }
 
-// Define TypeScript interface for a display podcast card
 interface PodcastCard {
-  id?: string; // Optional, as fallbackCards don't have id
+  id?: string;
   src: string;
   alt: string;
   episodes: string;

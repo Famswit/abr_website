@@ -5,11 +5,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { Share2, Gift } from "lucide-react";
 import { motion } from "framer-motion";
-
 import { useGetTopCategories } from "@/API/TopCategoriesAPI";
 
+interface ApiCategory {
+  name: string;
+  image_url: string;
+}
+
+interface FallbackCategoryCard {
+  title: string;
+  image: string;
+}
+
 const NewsCategory = () => {
-  const [delayDone, setDelayDone] = useState(false);
+  const [delayDone, setDelayDone] = useState<boolean>(false);
 
   const fadeIn = {
     initial: { opacity: 0, y: 10 },
@@ -28,7 +37,7 @@ const NewsCategory = () => {
     },
   };
 
-  const fallbackCategoryCards = [
+  const fallbackCategoryCards: FallbackCategoryCard[] = [
     { image: "/images/news.png", title: "Fitness Focus" },
     { image: "/images/new2.png", title: "Fitness Focus" },
     { image: "/images/new3.png", title: "Fitness Focus" },
@@ -37,10 +46,10 @@ const NewsCategory = () => {
   ];
 
   const { data, isLoading: queryLoading, isError } = useGetTopCategories();
-  const categories = data?.data || [];
+  const categories: ApiCategory[] = data?.data || [];
 
   const isLoading = !delayDone || queryLoading;
-  const displayCards =
+  const displayCards: (ApiCategory | FallbackCategoryCard)[] =
     !isLoading && !isError && categories.length > 0
       ? categories
       : fallbackCategoryCards;
@@ -100,39 +109,49 @@ const NewsCategory = () => {
         </div>
       ) : (
         <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 sm:gap-5 justify-center sm:justify-start">
-          {displayCards.map((card, idx) => (
-            <motion.div
-              key={card.name || idx}
-              className="w-full sm:w-[240px] bg-[#F4F4F4] rounded-lg shadow-sm p-[12px] hover:shadow-md"
-              {...fadeIn}
-              animate={{
-                ...fadeIn.animate,
-                transition: {
-                  ...fadeIn.animate.transition,
-                  delay: 0.6 + idx * 0.2,
-                },
-              }}
-              whileHover="hover"
-              variants={cardHover}
-            >
-              <div className="w-full h-[234px] rounded overflow-hidden">
-                <Image
-                  src={card.image_url || card.image || "/images/fallback.png"}
-                  alt={card.name || card.title}
-                  width={223}
-                  height={234}
-                  className="object-cover"
-                />
-              </div>
-              <h4 className="mt-3 text-[16px] sm:text-[18px] font-semibold text-[#2C2C2C]">
-                {card.name || card.title}
-              </h4>
-              <div className="flex gap-3 mt-3">
-                <Share2 className="w-[22px] h-[22px] p-[5px] bg-[#E4E4E4] rounded-full text-[#595959]" />
-                <Gift className="w-[22px] h-[22px] p-[5px] bg-[#E4E4E4] rounded-full text-[#595959]" />
-              </div>
-            </motion.div>
-          ))}
+          {displayCards.map(
+            (card: ApiCategory | FallbackCategoryCard, idx: number) => (
+              <motion.div
+                key={"name" in card ? card.name : idx}
+                className="w-full sm:w-[240px] bg-[#F4F4F4] rounded-lg shadow-sm p-[12px] hover:shadow-md"
+                {...fadeIn}
+                animate={{
+                  ...fadeIn.animate,
+                  transition: {
+                    ...fadeIn.animate.transition,
+                    delay: 0.6 + idx * 0.2,
+                  },
+                }}
+                whileHover="hover"
+                variants={cardHover}
+              >
+                <div className="w-full h-[234px] rounded overflow-hidden">
+                  <Image
+                    src={
+                      "image_url" in card
+                        ? card.image_url
+                        : card.image || "/images/fallback.png"
+                    }
+                    alt={"name" in card ? card.name : card.title}
+                    width={223}
+                    height={234}
+                    className="object-cover"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src =
+                        "/images/fallback.png";
+                    }}
+                  />
+                </div>
+                <h4 className="mt-3 text-[16px] sm:text-[18px] font-semibold text-[#2C2C2C]">
+                  {"name" in card ? card.name : card.title}
+                </h4>
+                <div className="flex gap-3 mt-3">
+                  <Share2 className="w-[22px] h-[22px] p-[5px] bg-[#E4E4E4] rounded-full text-[#595959]" />
+                  <Gift className="w-[22px] h-[22px] p-[5px] bg-[#E4E4E4] rounded-full text-[#595959]" />
+                </div>
+              </motion.div>
+            )
+          )}
         </div>
       )}
     </div>
