@@ -3,8 +3,15 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Share2, Gift, ChevronLeft, ChevronRight } from "lucide-react";
-
 import { useGetLatestEpisode } from "@/API/LatestEpisodeAPI";
+
+interface ApiEpisode {
+  id: string;
+  title: string;
+  created_at: string;
+  duration: number;
+  image_url: string;
+}
 
 interface Episode {
   id?: string;
@@ -65,11 +72,11 @@ const NewlyAddedEpisodes = () => {
   ];
 
   const { data, isLoading, isError } = useGetLatestEpisode();
-  const episodes: any[] = data?.data || [];
+  const episodes: ApiEpisode[] = data?.data || [];
 
   const displayEpisodes: Episode[] =
     !isLoading && !isError && episodes.length > 0
-      ? episodes.map((episode: any) => ({
+      ? episodes.map((episode: ApiEpisode) => ({
           id: episode.id,
           title: episode.title,
           date: new Date(episode.created_at)

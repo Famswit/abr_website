@@ -4,11 +4,19 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
 import { useGetTrendingEpisode } from "@/API/TrendingEpisodesAPI";
 
+// Define TypeScript interface for a podcast from the API
+interface ApiPodcast {
+  id: string;
+  title: string;
+  picture_url: string;
+  episode_count: number;
+}
+
+// Define TypeScript interface for a display podcast card
 interface PodcastCard {
-  id?: string;
+  id?: string; // Optional, as fallbackCards don't have id
   src: string;
   alt: string;
   episodes: string;
@@ -75,11 +83,11 @@ const TrendingPodcasts = () => {
   ];
 
   const { data, isLoading, isError } = useGetTrendingEpisode();
-  const podcasts: any[] = data?.data || [];
+  const podcasts: ApiPodcast[] = data?.data || [];
 
   const displayCards: PodcastCard[] =
     !isLoading && !isError && podcasts.length > 0
-      ? podcasts.map((podcast: any) => ({
+      ? podcasts.map((podcast: ApiPodcast) => ({
           id: podcast.id,
           src: podcast.picture_url,
           alt: podcast.title,
